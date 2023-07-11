@@ -9,6 +9,8 @@ sink deeper into the unsettling reality of UK mortgage market.
   - [Development](#development)
 <!--toc:end-->
 
+[**🎸Live version**](https://indoorvivants.github.io/uk-mortgage-demonstrator/)
+
 ## Built with
 
 - [Scala 3](https://docs.scala-lang.org/tour/tour-of-scala.html)
@@ -17,6 +19,9 @@ sink deeper into the unsettling reality of UK mortgage market.
 - [UI5 Webcomponents](https://github.com/sherpal/LaminarSAPUI5Bindings) bindings
 - [Vite](https://vitejs.dev/) for fast iteration and bundling
 - [Chart.js](https://www.chartjs.org/) for charts
+
+![2023-07-11 18 47 16](https://github.com/indoorvivants/uk-mortgage-demonstrator/assets/1052965/2bd892be-6075-4ca0-9af7-721848a391e3)
+
 
 ## Development
 
