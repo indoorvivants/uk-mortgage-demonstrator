@@ -151,7 +151,7 @@ def app =
   )
   div(
     h1(
-      "The lolno calculator - why you will never afford the mortgage in the UK"
+      "The lolno calculator - why you will never afford a mortgage in the UK"
     ),
     width := "100%",
     div(
