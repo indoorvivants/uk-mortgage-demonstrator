@@ -1,11 +1,11 @@
 package example
 
+import be.doeraene.webcomponents.ui5.*
+import com.raquo.laminar.api.L.*
 import org.scalajs.dom
 
-import com.raquo.laminar.api.L.*
-import be.doeraene.webcomponents.ui5.*
-import be.doeraene.webcomponents.ui5.configkeys.ValueState
 import scala.scalajs.js.annotation.JSImport
+
 import scalajs.js
 
 trait ChartDataset extends js.Any:
@@ -58,26 +58,9 @@ def app =
   inline def poundValue(source: Source[Double]) =
     span(color.maroon, child.text <-- source.toObservable.map(d => f"£$d%.2f"))
 
-  def renderChart(el: dom.Element) =
-    new Chart(
-      el,
-      js.Dictionary(
-        "type" -> "line",
-        "data" -> js.Dictionary(
-          "labels" -> js.Array("red", "Blue"),
-          "datasets" -> js.Array(
-            js.Dictionary(
-              "label"       -> "bla",
-              "data"        -> js.Array(12, 10),
-              "borderWidth" -> 1
-            )
-          )
-        )
-      )
-    )
-
   div(
     display.flex,
+    alignItems.center,
     width := "100%",
     div(
       width := "50%",
@@ -143,9 +126,7 @@ def app =
           // on mount, create the `Chart` instance and store it in optChart
           mount = nodeCtx =>
             val domCanvas: dom.HTMLCanvasElement = nodeCtx.thisNode.ref
-            val chart = renderChart(
-              domCanvas
-            ) // Chart.apply.newInstance2(domCanvas, chartConfig)
+            val chart = new Chart(domCanvas, js.Dictionary("type" -> "line"))
             optChart = Some(chart)
           ,
           // on unmount, destroy the `Chart` instance
@@ -159,7 +140,6 @@ def app =
           val monthlyPayments = deposits.map(dep =>
             settings.copy(deposit = dep.toDouble).monthlyPayment
           )
-          println(settings)
           optChart.foreach { ch =>
             ch.data.labels = js.Array(deposits.map(_.toString)*)
             ch.data.datasets = js.Array(
