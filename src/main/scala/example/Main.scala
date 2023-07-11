@@ -85,7 +85,7 @@ def app =
     h1("Deposit: ", poundValue(deposit)),
     Slider(
       _.min           := 10_000,
-      _.max           := 300_000,
+      _.max           := 500_000,
       _.step          := 10_000,
       _.value         := 50_000,
       _.showTooltip   := true,
@@ -132,7 +132,7 @@ def app =
       ),
       combined --> { settings =>
         val deposits =
-          50_000.to(250_000.min(settings.housePrice.toInt), 5_000)
+          50_000.to(500_000.min(settings.housePrice.toInt), 5_000)
         val monthlyPayments = deposits.map(dep =>
           settings.copy(deposit = dep.toDouble).monthlyPayment
         )
